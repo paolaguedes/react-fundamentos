@@ -6,9 +6,9 @@ import Post from './Post'
 function App() {
 
 	const [posts, setPosts] = useState([		
-		{ id: Math.random(), title: 'Titulo1', subtitle: 'Subtitulo 1', likes: 20},
-		{ id: Math.random(), title: 'Titulo2', subtitle: 'Subtitulo 2', likes: 10},
-		{ id: Math.random(), title: 'Titulo3', subtitle: 'Subtitulo 3', likes: 50},
+		{ id: Math.random(), title: 'Titulo1', subtitle: 'Subtitulo 1', likes: 20, read: false},
+		{ id: Math.random(), title: 'Titulo2', subtitle: 'Subtitulo 2', likes: 10, read: false},
+		{ id: Math.random(), title: 'Titulo3', subtitle: 'Subtitulo 3', likes: 50, read: true},
 		])
 
 	function handleRefresh(){
@@ -30,7 +30,7 @@ function App() {
 	}
 	return (
 	<>
-	<Header>
+	<Header title="Titulo qualquer">
 		<h2>
 			posts da semana
 			<button onClick={handleRefresh}>atualizar</button>
@@ -41,12 +41,7 @@ function App() {
 				<Post 
 					key={post.id}
 					onRemove={handleRemove}
-					likes={post.likes}
-					post={{
-						id: post.id,
-						title: post.title,
-						subtitle: post.subtitle,
-					}}	
+					post={post}	
 				/>
 			))
 		}
