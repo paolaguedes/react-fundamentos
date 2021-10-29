@@ -1,22 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import PostHeader from './PostHeader'
+
 function Post(props){
-    // é possivel fazer fora ou dentro
     if(props.post.read){
         return <h2>{props.post.title} já foi lido</h2>
     }
     return(
         <>
         <article>
-        <strong>
-            {props.post.read && <s>{props.post.title}</s>}
-            {!props.post.read && props.post.title}
-        </strong>
-        <button onClick={() => props.onRemove(props.post.id)}>
-            Remover
-        </button>
-        <br/>
+        <PostHeader
+            onRemove={props.onRemove}
+            post={{
+                id: props.post.id,
+                title: props.post.title,
+                read: props.post.read,
+            }}
+        />
         <small>{props.post.subtitle}</small>
         <br/>
         <small>Likes: {props.post.likes / 2}</small>

@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import Header from './Header'
 import Post from './Post'
 
+import { ThemeProvider } from './ThemeContext'
+
 function App() {
 
 	const [posts, setPosts] = useState([		
@@ -28,9 +30,10 @@ function App() {
 			prevState.filter(post => post.id != postId)
 		))
 	}
+
 	return (
-	<>
-	<Header title="Titulo qualquer">
+	<ThemeProvider>
+	<Header>
 		<h2>
 			posts da semana
 			<button onClick={handleRefresh}>atualizar</button>
@@ -45,7 +48,7 @@ function App() {
 				/>
 			))
 		}
-	</>
+	</ThemeProvider>
 	)
 }
 
