@@ -232,3 +232,36 @@ if(props.post.read){
    {!props.post.read && props.post.title}
 </strong>
 ```
+### useContext
+
+É uma função que retorna o valor do contexto. Para criar um contexto usamos createContext e para usarmos o contexto criado usamos useContext. Abaixo estamo crinado um contexto de nome ThemeContext, e atribuindo a propriedade value um objeto com a propriedade mode. E estamos usando esse contexto dentro do nosso componente Button. O useContext recebe então o valor da propriedade value e assim conseguimos acessá-lo por meio da constante theme.
+
+```js
+    const ThemeContext = createContext()
+   
+    function App(){
+         
+     return(
+     	<ThemeContext.Provider value={{ mode: 'dark' }}>
+	
+	<Button/>
+	
+	</ThemeContext.Provider>
+     )
+    }
+    
+    function Button(){
+     const theme = useContext(ThemeContext)
+
+     return(
+	<button>
+	  { theme.mode }
+	</button>
+     )
+    }
+```
+
+
+
+
+
