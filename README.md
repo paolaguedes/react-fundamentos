@@ -261,7 +261,29 @@ if(props.post.read){
     }
 ```
 
+### Estilo inline
 
+Assim como no HTML é possível estilizar elementos adicionando style dentro da tag. Só que no React algumas coisas são diferentes.
 
+### style no HTML vs style no React, respectivamente:
+
+```html
+<div style="color: #fff; background-color: #000;">
+	<p>Hello world</p>
+</div>
+```
+
+```html
+<div 
+     style={{
+     color: '#fff', 
+     backgroundColor: '#000',
+     }}
+>
+	<p>Hello world</p>
+</div>
+```
+
+Basicamente no React declaramos um objeto, cada valor de propriedade precisa ir entre aspas, são separados por vírgula (até por que é um objeto) e o nome das propriedades que no HTML são separadas com -, usamos o camelCase. Note isso observando como o background color foi declarado. :)
 
 
