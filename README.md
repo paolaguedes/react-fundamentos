@@ -198,3 +198,37 @@ No nosso componente adicionamos um botão que ao ser clicado retornará o id do 
             Remover
         </button>
 ```
+
+### Renderização condicional
+
+É definir uma condição para um elemento. O post pode ter um formato diferente caso ele já tenha sido lido, e usando a renderização condicional podemos manipular isso. Temos três opções:
+
+1. Adicionando um if
+
+```
+if(props.post.read){
+        return <h2>{props.post.title} já foi lido</h2>
+    }
+    return(
+        <>
+        <article>...<article>
+	</>
+```
+2. Adicionando uma condicional ternária
+``` 
+<strong>
+   {props.post.read?
+   <s>{props.post.title}</s>
+   :
+   props.post.title}
+</strong>
+```
+
+4. Adicionando uma short circuit evaluation
+
+``` 
+<strong>
+   {props.post.read && <s>{props.post.title}</s>}
+   {!props.post.read && props.post.title}
+</strong>
+```
