@@ -286,4 +286,37 @@ Assim como no HTML é possível estilizar elementos adicionando style dentro da 
 
 Basicamente no React declaramos um objeto, cada valor de propriedade precisa ir entre aspas, são separados por vírgula (até por que é um objeto) e o nome das propriedades que no HTML são separadas com -, usamos o camelCase. Note isso observando como o background color foi declarado. :)
 
+### Usando CSS no React
+Para isso é necessário instalar 2 loaders.
 
+> yarn add css-loader style-loader -D
+
+- css-loader interpreta o @import e url(), converte isso para que o javascript entenda
+- style-loader ele pega nosso código css e injeta no html
+
+No arquivo webpack configuramos assim:
+
+```js
+ {
+   test: /\.css$/,
+   use: ['style-loader','css-loader'],
+ }
+
+```
+
+### Instalando o SASS no projeto
+
+O SASS é um pré-procesador do css e com ele conseguimos escrever um código css melhorado. Para mais veja a <a href="https://sass-lang.com">documentação</a>. Para instalar a dependência do sass no React rode no terminal:
+
+> yarn add sass sass-loader -D
+
+
+No arquivo webpack configuramos assim:
+
+```js
+ {
+   test: /\.scss$/,
+   use: ['style-loader','css-loader'],
+ }, 'sass-loader',
+
+```
