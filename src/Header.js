@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import Button from './Button'
+import styles from './Header.scss'
 
 import { ThemeContext } from './ThemeContext'
 
@@ -9,8 +10,8 @@ function Header({title,  children}) {
     const { onToggleTheme } = useContext(ThemeContext)
 
     return (
-        <>
-        <h1>{title}</h1>
+        <div>
+        <h1 className={styles.title}>{title}</h1>
         <Button
             onClick={ onToggleTheme }
         >
@@ -18,7 +19,7 @@ function Header({title,  children}) {
         </Button>
         {children}
         <hr/>
-        </>
+        </div>
     )
 }
 

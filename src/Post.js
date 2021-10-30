@@ -2,14 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import PostHeader from './PostHeader'
+import styles from './Post.scss'
 
 function Post(props){
     if(props.post.read){
         return <h2>{props.post.title} já foi lido</h2>
     }
     return(
-        <>
-        <article>
+        <article 
+            className={
+                props.post.removed
+                ? styles.post
+                : styles.postDeleted
+            }
+        >
         <PostHeader
             onRemove={props.onRemove}
             post={{
@@ -22,8 +28,6 @@ function Post(props){
         <br/>
         <small>Likes: {props.post.likes / 2}</small>
         </article>
-        <br/>
-        </>
     )
 }
 
@@ -37,5 +41,6 @@ Post.propTypes = {
         subtitle: PropTypes.string.isRequired,
         likes: PropTypes.number.isRequired,
         read: PropTypes.bool.isRequired,
+        removed: PropTypes.bool.isRequired,
     }).isRequired,
 }
