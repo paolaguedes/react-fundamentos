@@ -320,3 +320,29 @@ No arquivo webpack configuramos assim:
  }, 'sass-loader',
 
 ```
+### Styled-components
+Também chamado de CSS-in-JS. Que como o nome já diz é usar css dentro do JavaScript. Com ele criamos componentes de estilo. Para instalar no projeto:
+
+```js
+yarn add styled-components
+```
+Um exemplo de estilização:
+
+```js
+import styled from "styled-components";
+
+export default styled.h1`
+  color: cyan;
+  font-family: 'Trebuchet MS';
+`
+```
+
+E usamos assim como usariamos um componente:
+
+```js
+import Title from '../Title'
+
+...
+
+<Title>An example</Title>
+```
