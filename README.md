@@ -346,3 +346,54 @@ import Title from '../Title'
 
 <Title>An example</Title>
 ```
+### useEffect
+Casos de uso:
+
+- Ele executa uma função toda vez que o componente em questão é renderizado.
+
+```js
+
+useEffect( () => {
+  console.log("sou executado sempre após a renderização")
+})
+
+```
+
+- Executa na primeira renderização do componente.
+
+```js
+
+useEffect( () => {
+  console.log("sou executado uma vez após a renderização")
+}, [] )
+
+```
+
+- Executa toda vez que um state ou prop é alterada.
+
+```js
+
+useEffect( () => {
+  console.log("sou executado uma vez após a renderização")
+}, [theme] )
+
+```
+
+- Executa toda vez que o componente sai da tela.
+
+```js
+
+useEffect( () => {
+  console.log("sou executado uma vez após a renderização")
+  
+  return () => {
+   console.log("componente saiu da tela")
+  }
+  
+}, [theme] )
+
+```
+
+### useEffect x useLayoutEffect
+
+A única diferença entre os dois é o tempo em que são executados no Lifecycle. Enquanto o useEffect espera toda a renderização, alteração no DOM e as mudanças visuais acontecerem para disparar, o useLayoutEffect é disparado antes das mudanças visuais e o React espera que ele finalize para prosseguir.
