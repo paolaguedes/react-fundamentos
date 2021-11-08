@@ -397,3 +397,25 @@ useEffect( () => {
 ### useEffect x useLayoutEffect
 
 A única diferença entre os dois é o tempo em que são executados no Lifecycle. Enquanto o useEffect espera toda a renderização, alteração no DOM e as mudanças visuais acontecerem para disparar, o useLayoutEffect é disparado antes das mudanças visuais e o React espera que ele finalize para prosseguir.
+
+
+### useRef
+Semelhante ao useState, mas não recebe função de callback. Podemos usá-lo se queremos que o useEffect não execute na primeira renderização do componente, mas sim nas vezes após.
+
+```js
+
+const firstRender = useRef(true)
+
+useEffect( () => {
+  if (firstRender.current) {
+  firstRender.current = false
+  return
+  }
+  
+  return () => {
+   console.log("componente saiu da tela")
+  }
+  
+}, [theme] )
+
+```
