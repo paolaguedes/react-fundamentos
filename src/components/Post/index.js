@@ -5,10 +5,10 @@ import PostHeader from './PostHeader'
 
 import { Container, Subtitle } from './styles'
 
-function Post(props){
+export default function Post(props){
 
     return(
-        <Container removed={props.post.removed}>
+        <Container>
         <PostHeader
             post={{
                 id: props.post.id,
@@ -20,7 +20,6 @@ function Post(props){
     )
 }
 
-export default Post
 
 Post.propTypes = {
     post: PropTypes.shape({

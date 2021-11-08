@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react'
+import React, { useMemo, useState, useEffect, Component } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import GlobalStyle from '../../styles/global'
@@ -6,30 +6,59 @@ import Layout from '../Layout'
 
 import themes from '../../styles/themes'
 
-function App() {
-	const [mode, setMode] = useState('dark')
+export default class App extends React.Component {
+	constructor(props) {
+		super(props)
 
-	const currentMode = useMemo(() => {
-		return themes[mode] || themes.dark
-	}, [mode])
-
-	function handleToggleMode() {
-		setMode(prevState => prevState == 'dark' ? 'light' : 'dark')
+		this.state = {
+			mode: 'dark'
+		}
 	}
 
-	useEffect(() => {
-		
-	})
+	render() {
+		const { mode } = this.state
 
-	return (
-	<ThemeProvider theme={currentMode}>
+		return ( 
+		<ThemeProvider theme={themes[mode] || themes.dark}>
 		<GlobalStyle/>
 		<Layout 
-			onToggleMode={handleToggleMode}
+			onToggleMode={() => {
+				this.setState(prevState => ({ 
+					mode: prevState.mode == 'dark'?
+			 		'light' : 'dark'
+				}))
+			}}
 			selectedMode={mode}
 		/>
-	</ThemeProvider>
-	)
+		</ThemeProvider>
+		)
+	}
 }
 
-export default App
+// function App() {
+// 	const [mode, setMode] = useState('dark')
+
+// 	const currentMode = useMemo(() => {
+// 		return themes[mode] || themes.dark
+// 	}, [mode])
+
+// 	function handleToggleMode() {
+// 		setMode(prevState => prevState == 'dark' ? 'light' : 'dark')
+// 	}
+
+// 	useEffect(() => {
+		
+// 	})
+
+// 	return (
+// 	<ThemeProvider theme={currentMode}>
+// 		<GlobalStyle/>
+// 		<Layout 
+// 			onToggleMode={handleToggleMode}
+// 			selectedMode={mode}
+// 		/>
+// 	</ThemeProvider>
+// 	)
+// }
+
+// export default App
