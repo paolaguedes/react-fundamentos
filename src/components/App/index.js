@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import GlobalStyle from '../../styles/global'
@@ -16,6 +16,10 @@ function App() {
 	function handleToggleMode() {
 		setMode(prevState => prevState == 'dark' ? 'light' : 'dark')
 	}
+
+	useEffect(() => {
+		
+	})
 
 	return (
 	<ThemeProvider theme={currentMode}>
