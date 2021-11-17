@@ -419,3 +419,33 @@ useEffect( () => {
 }, [theme] )
 
 ```
+
+### react-router-dom
+Cria rotas dentro do nosso projeto que nos possibilita trocar de página. Ele nada mais é do que um componente e para utiliza-lo é preciso instalar com o seguinte código:
+
+```js
+yarn add react-router-dom
+```
+
+E no nosso projeto, podemos criar um arquivo chamado Routes.js e importar.
+
+```js
+import { Route } from 'react-router-dom'
+```
+
+Adicionando uma rota para a raiz do projeto:
+
+```js
+<Route path="/" component={Home}/>
+```
+
+ -path especifica o caminho da url (como: /produtos)
+ -component o componente que será renderizado
+ 
+ 
+### BrowserRouter
+Usamos para acoplar todas os componentes <Routes/>, basicamente é o que nos permite navegar entre as urls da página. Importamos assim:
+
+```js
+import { BrowserRouter } from 'react-router-dom'
+```
