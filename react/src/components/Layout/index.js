@@ -1,38 +1,32 @@
 import React from 'react'
-
+import { BrowserRouter, Link } from 'react-router-dom'
 import Header from '../Header'
-import Post from '../Post'
 import { MainFooter } from '../Footer'
-
+import Routes from '../../Routes'
 import { ThemeProvider } from '../../context/ThemeContext'
+import { Nav } from './styles'
 
 function Layout({onToggleMode, selectedMode}) {
 
-	const posts = ([		
-		{ id: Math.random(), title: 'Porque gatos são os melhores?', subtitle: 'Em meados da década...'},
-		{ id: Math.random(), title: 'Como dar banho no seu gato', subtitle: 'Siga esse passo a passo...'},
-		{ id: Math.random(), title: 'Descubra os segredos felinos', subtitle: 'Você sabia que seu gato pode...'},
-	])
-
 	return (
+	<BrowserRouter>
 	<ThemeProvider>
 	<Header 
 		onToggleMode={onToggleMode}
 		selectedMode={selectedMode}
 	/>
-		{
-			posts.map( post => (
-				<Post 
-					key={post.id}
-					post={post}	
-				/>
-			))
-		}
-		<MainFooter 
+	<Nav>
+		<Link to="/">Home</Link>
+		<Link to="/posts">Posts</Link>
+	</Nav>
+
+	<Routes/>
+	<MainFooter 
 			onToggleMode={onToggleMode}
 			selectedMode={selectedMode}
-		/>
+	/>
 	</ThemeProvider>
+	</BrowserRouter>
 	)
 }
 
