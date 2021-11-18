@@ -462,3 +462,21 @@ Para que uma página personalizada seja renderizada quando o usuário tentar ace
 ```
 
 E para que o React não renderize mais de um componente por vez importamos o Switch do react-router-dom e usamos ele como componente pai das nossas rotas.
+
+### Pegando parâmetros pela URL
+
+Podemos importar os hooks useParams e useLocation de react-router-dom. O useParams nos retorna tudo que passamos na nossa URL pela após a / e o useLocation retorna parâmetros que geralmente usamos para filtrar dados e vem após o ?.
+
+
+```js
+
+const params = useParams()
+const {search} = useLocation()
+const queryParams = useMemo(() => new URLSearchParams(search), [search])
+
+console.log(params)
+console.log(queryParams.get('meuQueryParams'))
+
+```
+
+useLocation nos retorna um objeto, e a propriedade retorna parâmetros depois do ?. Por isso no exemplo acima foi usada a desestruturação. E com o useMemo conseguimos alterar o valor da new URLSearchParams toda vez que a propriedadde search tiver seu valor alterado.
