@@ -449,3 +449,16 @@ Usamos para acoplar todas os componentes <Routes/>, basicamente é o que nos per
 ```js
 import { BrowserRouter } from 'react-router-dom'
 ```
+
+### Criando rota 404 (not found)
+Para que uma página personalizada seja renderizada quando o usuário tentar acessar uma URL não existente no site podemos fazer nossa rota de duas formas:
+
+```js
+ <Route component={NotFound}/>
+ 
+ // ou
+ 
+  <Route path="*" component={NotFound}/>
+```
+
+E para que o React não renderize mais de um componente por vez importamos o Switch do react-router-dom e usamos ele como componente pai das nossas rotas.
