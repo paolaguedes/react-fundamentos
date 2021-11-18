@@ -18,6 +18,7 @@ function Layout({onToggleMode, selectedMode}) {
 	<Nav>
 		<Link to="/">Home</Link>
 		<Link to="/posts">Posts</Link>
+		<Link to="/posts/1234">Post</Link>
 	</Nav>
 
 	<Routes/>
