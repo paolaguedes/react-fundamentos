@@ -465,7 +465,7 @@ E para que o React não renderize mais de um componente por vez importamos o Swi
 
 ### Pegando parâmetros pela URL
 
-Podemos importar os hooks useParams e useLocation de react-router-dom. O useParams nos retorna tudo que passamos na nossa URL pela após a / e o useLocation retorna parâmetros que geralmente usamos para filtrar dados e vem após o ?.
+Podemos importar os hooks useParams e useLocation de react-router-dom. O useParams nos retorna tudo que passamos na nossa URL pela após a / e o useLocation retorna um objeto com parâmetros.
 
 
 ```js
@@ -479,4 +479,4 @@ console.log(queryParams.get('meuQueryParams'))
 
 ```
 
-useLocation nos retorna um objeto, e a propriedade retorna parâmetros depois do ?. Por isso no exemplo acima foi usada a desestruturação. E com o useMemo conseguimos alterar o valor da new URLSearchParams toda vez que a propriedadde search tiver seu valor alterado.
+useLocation nos retorna um objeto, e a propriedade retorna os queryParams. Por isso no exemplo acima foi usada a desestruturação. E com o useMemo conseguimos alterar o valor da new URLSearchParams toda vez que a propriedadde search tiver seu valor alterado.
