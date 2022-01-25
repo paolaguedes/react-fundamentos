@@ -480,3 +480,17 @@ console.log(queryParams.get('meuQueryParams'))
 ```
 
 useLocation nos retorna um objeto, e a propriedade retorna os queryParams. Por isso no exemplo acima foi usada a desestruturação. E com o useMemo conseguimos alterar o valor da new URLSearchParams toda vez que a propriedadde search tiver seu valor alterado.
+
+## Class component
+Declarando o componente:
+
+
+export default class PostList extends React.Component {
+	render() {
+    return()
+  }
+}
+
+Com props:
+
+const { onToggleMode, selectedMode } = this.props

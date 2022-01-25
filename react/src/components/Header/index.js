@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import { Container } from './styles'
 
-export default class Header extends React.Component {
+export default class Header extends Component {
+    static propTypes = {
+        selectedMode: PropTypes.string.isRequired,
+        onToggleMode: PropTypes.func.isRequired,
+    }
+
     render() {
         const { onToggleMode, selectedMode } = this.props
         return (
